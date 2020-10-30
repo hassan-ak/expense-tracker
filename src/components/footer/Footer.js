@@ -2,10 +2,11 @@
 import React from 'react';
 
 // Styles Import
-import './Footer.css'
+import './Footer.css';
 
 export const Footer = () => {
     return (
+        // Footer Container
         <div className="footer">
             by:
             <strong>

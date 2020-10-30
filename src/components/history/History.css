@@ -51,9 +51,10 @@
     transform: translate(-100%,-50%);
     border-radius: 10px;
     opacity: 0;
-    transition: opacity 0.5s ease;
 }
 
 .list li:hover .del{
     opacity: 1;
+    cursor: pointer;
+    outline: none;
 }

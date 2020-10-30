@@ -1,11 +1,12 @@
 // React Imports
-import React from 'react'
+import React from 'react';
 
 // Styles Import
-import './Header.css'
+import './Header.css';
 
 export const Header = () => {
     return (
+        // Header Container
         <div className="header">
             <h2>
                 Expense Tracker

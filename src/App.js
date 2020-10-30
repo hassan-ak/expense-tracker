@@ -1,5 +1,5 @@
 // Component Imports
-import {Header} from './components/header/Header'
+import {Header} from './components/header/Header';
 import { Balance } from './components/balance/Balance';
 import { Summary } from './components/summary/Summary';
 import { History } from './components/history/History';
