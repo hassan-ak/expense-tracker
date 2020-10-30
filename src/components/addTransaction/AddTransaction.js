@@ -6,7 +6,7 @@ import './AddTransaction.css';
 
 export const AddTransaction = () => {
     return (
-        // Add Transaction Container
+        // Add-Transaction Container
         <div className="addTransaction">
             
             {/* Heading */}
@@ -51,7 +51,7 @@ export const AddTransaction = () => {
                         Add Expense
                     </button>
                 </div>
-                
+
             </form>
         </div>
     )
