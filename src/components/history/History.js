@@ -13,7 +13,7 @@ import './History.css';
 export const History = () => {
 
     // use GloablContext to fetch data
-    const context = useContext(GlobalContext)
+    const context = useContext(GlobalContext);
 
     return (
         // Header Container

@@ -12,7 +12,7 @@ export const AppReducer = (state,action)=>{
             return{
                 ...state,
                 transactions: [action.payload, ...state.transactions]
-            }
+            };
             
         default:
             return state;

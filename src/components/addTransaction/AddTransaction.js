@@ -18,7 +18,7 @@ export const AddTransaction = () => {
     const [amStyle,setAmStyle] = useState("smallSuccess");
     
     // UseContext
-    const context = useContext(GlobalContext)
+    const context = useContext(GlobalContext);
 
     // function for adding new transaction
     const addNewTransaction=(a)=>{

@@ -10,7 +10,7 @@ import { initialState } from './InitialState';
 export const GlobalProvider = ({children}) => {
 
     //Use reducer
-    const [state, dispatch] = useReducer(AppReducer, initialState)
+    const [state, dispatch] = useReducer(AppReducer, initialState);
 
     //Actions
 
