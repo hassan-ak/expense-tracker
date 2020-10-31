@@ -6,12 +6,15 @@ import { History } from './components/history/History';
 import { AddTransaction } from './components/addTransaction/AddTransaction';
 import { Footer } from './components/footer/Footer';
 
+//Functional Component Imports
+import { GlobalProvider } from './functionalComponents/GlobalProvider';
+
 // Styles Imports
 import './App.css';
 
 function App() {
   return (
-    <div>
+    <GlobalProvider>
       <Header/>
       <div className="container">
         <Balance/>
@@ -20,7 +23,7 @@ function App() {
         <AddTransaction/>
       </div>
       <Footer/>
-    </div>
+    </GlobalProvider>
   );
 }
 
