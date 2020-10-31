@@ -1,10 +1,52 @@
 // React Imports
-import React from 'react';
+import React, {useState, useContext} from 'react';
+
+// Functional Component Imports
+import {GlobalContext} from '../../functionalComponents/GlobalContext';
 
 // Styles Import
 import './AddTransaction.css';
 
 export const AddTransaction = () => {
+
+    // Define UseState
+    const [description, setDescription] = useState()
+    const [amount, setAmount] = useState()
+    
+    // UseContext
+    const context = useContext(GlobalContext)
+
+    // function for adding new transaction
+    const addNewTransaction=(a)=>{
+
+        // create new transaction
+        const newTransaction = { 
+            id: Math.floor(Math.random()*10000000000),
+            description,
+            amount: (Math.abs(+amount))*a
+        }
+
+        //Check for empty entry
+        if ((typeof description == 'undefined' || typeof amount == 'undefined')
+            ||(description.length === 0 || amount.length === 0)) 
+            {}
+        else 
+            {
+                context.addTransaction(newTransaction);
+
+                // empty out input form after submit
+                setTimeout(() => {
+                    setDescription('');
+                    setAmount('');
+                }, 30);
+            }
+    }
+
+    // onSubmit functions
+    const onSubmit = (e) => {
+        e.preventDefault();
+    }
+
     return (
         // Add-Transaction Container
         <div className="addTransaction">
@@ -15,7 +57,7 @@ export const AddTransaction = () => {
             </h3>
 
             {/* Form for adding Transactions */}
-            <form>
+            <form onSubmit={onSubmit}>
 
                 {/* div for new Transaction Description */}
                 <div className="form-control">
@@ -23,7 +65,9 @@ export const AddTransaction = () => {
                         Description
                     </label>
                     <input  type="text" 
-                            placeholder="Enter Description"/>
+                            placeholder="Enter Description"
+                            value={description}
+                            onChange = {(e)=>{setDescription(e.target.value)}}/>
                     <small>
                         Kindly Enter Description
                     </small>
@@ -36,7 +80,9 @@ export const AddTransaction = () => {
                     </label>
                     <input  type="number"
                             step="0.00000000001" 
-                            placeholder="Enter Amount"/>
+                            placeholder="Enter Amount"
+                            value={amount}
+                            onChange = {(e)=>{setAmount(e.target.value)}}/>
                     <small>
                         Kindly Enter Amount
                     </small>
@@ -44,10 +90,10 @@ export const AddTransaction = () => {
 
                 {/* Buttons for Adding new Transactions */}
                 <div className="btn">
-                    <button className="add-income"> 
+                    <button className="add-income" onClick={(a)=>addNewTransaction(1)}>  
                         Add Income
                     </button>
-                    <button className="add-expense">
+                    <button className="add-expense" onClick={(a)=>addNewTransaction(-1)}>
                         Add Expense
                     </button>
                 </div>
