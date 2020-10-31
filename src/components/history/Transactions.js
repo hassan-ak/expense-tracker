@@ -24,7 +24,9 @@ export const Transactions = (props) => {
                 </span>
 
                     {/* button fro deleting a transaction */}
-                    <button className="del">X</button>
+                    <button className="del" onClick={()=>{props.delete(props.transaction.id)}}>
+                        X
+                    </button>
                 </li>
         </div>
     )
