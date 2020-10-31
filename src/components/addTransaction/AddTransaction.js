@@ -10,8 +10,12 @@ import './AddTransaction.css';
 export const AddTransaction = () => {
 
     // Define UseState
-    const [description, setDescription] = useState()
-    const [amount, setAmount] = useState()
+    // for transaction description and amount
+    const [description, setDescription] = useState();
+    const [amount, setAmount] = useState();
+    // for styling of error message
+    const [desStyle,setDesStyle] = useState("smallSuccess");
+    const [amStyle,setAmStyle] = useState("smallSuccess");
     
     // UseContext
     const context = useContext(GlobalContext)
@@ -42,9 +46,29 @@ export const AddTransaction = () => {
             }
     }
 
-    // onSubmit functions
+    // Function for checking Error Message Style
+    //for description message
+    const checkDesStyle = ()=>{
+        if (typeof description == 'undefined' || description.length === 0){
+            setDesStyle("smallError")
+        } else {
+            setDesStyle("smallSuccess")
+        }
+    }
+    // for amount message
+    const checkAmsStyle = ()=>{
+        if (typeof amount == 'undefined' || amount.length === 0){
+            setAmStyle("smallError")
+        }else{
+            setAmStyle("smallSuccess")
+        }
+    }
+
+    // On submit Checks
     const onSubmit = (e) => {
         e.preventDefault();
+        checkDesStyle();
+        checkAmsStyle();
     }
 
     return (
@@ -68,7 +92,7 @@ export const AddTransaction = () => {
                             placeholder="Enter Description"
                             value={description}
                             onChange = {(e)=>{setDescription(e.target.value)}}/>
-                    <small>
+                    <small className={desStyle}>
                         Kindly Enter Description
                     </small>
                 </div>
@@ -83,7 +107,7 @@ export const AddTransaction = () => {
                             placeholder="Enter Amount"
                             value={amount}
                             onChange = {(e)=>{setAmount(e.target.value)}}/>
-                    <small>
+                    <small className={amStyle}>
                         Kindly Enter Amount
                     </small>
                 </div>
